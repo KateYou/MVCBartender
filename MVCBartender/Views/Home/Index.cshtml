@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MVCBartender.Models.Drink>
+
+@{
+    ViewBag.Title = "Choose Your Drinks";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Menu</h2>
+            <table class="table borderless">
+                <thead class="thead">
+                    <tr>
+                        <th>
+                            Cocktail
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Choose
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var drink in Model)
+                {
+                    <tr>
+                        <td name="drinkName">
+                            @drink.DrinkName
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="descript" id="desc">@drink.DrinkDescription</td>
+                        <td>
+                            $@drink.DrinkCost
+                        </td>
+                        <td>
+                            @Html.ActionLink("Order Drink", "Queue", "Order", drink, new { @class = "btn btn-default" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Your Order</h2>
+
+            @*<ul>
+                <li>
+                    @Viewbag.DrinkName  CS0103: The name 'Viewbag' does not exist in the current context
+                    @Viewbag.DrinkCost
+                </li>
+            </ul>*@
+
+            <p>@TempData["success"]</p>  @*This currently exists in session state length*@
+        </div>
+    </div>
+</div>
