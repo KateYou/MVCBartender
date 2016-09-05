@@ -4,46 +4,52 @@
     ViewBag.Title = "Queue";
 }
 
-<h2>Queue</h2>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Queue</h2>
 
-<table class="table">
-    <thead class="thead">
-        <tr>
-            <th>
-                Drink Name
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Table Number
-            </th>
-            <th>
-                Time Ordered
-            </th>
-            <th>
-                Mark
-            </th>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @item.DrinkName
-            </td>
-            <td>
-                @item.DrinkDescription
-            </td>
-            <td>
-                @item.TableNum
-            </td>
-            <td>
-                @item.OrderTime
-            </td>
-            <td>
-                @Html.ActionLink("Prepared", "Servable", "Prepared", item, new { @class = "btn btn-info" })
-            </td>
-        </tr>
-    }
-</table>
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <th>
+                            Drink Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Table Number
+                        </th>
+                        <th>
+                            Time Ordered
+                        </th>
+                        <th>
+                            Mark
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.DrinkName
+                        </td>
+                        <td>
+                            @item.DrinkDescription
+                        </td>
+                        <td class="text-center">
+                            @item.TableNum
+                        </td>
+                        <td>
+                            @item.OrderTime
+                        </td>
+                        <td>
+                            @Html.ActionLink("Prepared", "Servable", "Prepared", item, new { @class = "btn btn-info" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

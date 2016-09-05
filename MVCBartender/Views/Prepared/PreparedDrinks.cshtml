@@ -4,34 +4,41 @@
     ViewBag.Title = "Prepared";
 }
 
-<h2>Ready for Delivery</h2>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Ready for Delivery</h2>
 
-<table class="table">
-    <thead class="thead">
-        <tr>
-            <th>
-                Drink Name
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Table
-            </th>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DrinkName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DrinkDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TableNum)
-            </td>
-        </tr>
-    }
-</table>
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <th>
+                            Drink Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th class="text-center">
+                            Table Number
+                        </th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DrinkName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DrinkDescription)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TableNum)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

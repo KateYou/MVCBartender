@@ -33,10 +33,10 @@ namespace MVCBartender.Controllers
 
             //Group(numerical order) drinks by table so server picks up all drinks for a certain table in one trip
             var orderByTable = servableDrinks.OrderBy(p => p.TableNum);
-           
+
             //Return view of drinks ready to be served.  Must call same plain method used by Layout.
             return RedirectToAction("DrinkQueue", "Order");
-        }
+        }           
 
 
         /****************************************************

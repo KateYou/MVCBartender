@@ -42,9 +42,11 @@ namespace MVCBartender.Controllers
             //Add drink to order list
             selectedDrinks.Add(drink);
 
-            //ViewBag.DrinkName = drink.DrinkName;
-            //ViewBag.DrinkCost = drink.DrinkCost;
-            TempData["success"] = "Thanks for your Order!";
+            //Display drink ordered with thanks message after redirect
+            TempData["info"] = " You ordered one "; 
+            TempData["ordered"] = drink.DrinkName;
+            TempData["orderTime"] = " at " + drink.OrderTime + ".";
+            TempData["success"] = "Thanks for your Order! Your drink will arrive shortly."; 
 
             //Show the view with the selected drinks listed (Queue page)
             return RedirectToAction("Index", "Home");   

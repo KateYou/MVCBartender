@@ -8,17 +8,18 @@
     <div class="row">
         <div class="col-md-6">
             <h2>Menu</h2>
+            <br />
             <table class="table borderless">
-                <thead class="thead">
+                <thead @*class="thead"*@>
                     <tr>
                         <th>
-                            Cocktail
+                            Drink
                         </th>
                         <th>
                             Price
                         </th>
                         <th>
-                            Choose
+                            @*Choose*@
                         </th>
                         <th></th>
                     </tr>
@@ -26,7 +27,7 @@
                 @foreach (var drink in Model)
                 {
                     <tr>
-                        <td name="drinkName">
+                        <td class="drinkName">
                             @drink.DrinkName
                         </td>
                     </tr>
@@ -39,21 +40,29 @@
                             @Html.ActionLink("Order Drink", "Queue", "Order", drink, new { @class = "btn btn-default" })
                         </td>
                     </tr>
+                    <tr><td> </td></tr>
                 }
             </table>
         </div>
-
         <div class="col-md-6">
             <h2>Your Order</h2>
+            <br />
+            <br />
+            <hr />
+            <br />
+            @if (TempData["ordered"] != null)
+            {
+                <p class="text-center">
+                    <span class="glyphicon glyphicon-ok green"></span>
+                    @TempData["info"]
+                    <span style="color:#b12070">@TempData["ordered"]</span>
+                    @TempData["orderTime"]
+                </p>
+            }
 
-            @*<ul>
-                <li>
-                    @Viewbag.DrinkName  CS0103: The name 'Viewbag' does not exist in the current context
-                    @Viewbag.DrinkCost
-                </li>
-            </ul>*@
-
-            <p>@TempData["success"]</p>  @*This currently exists in session state length*@
+            <p class="text-center">
+                @TempData["success"]
+            </p>
         </div>
     </div>
 </div>
